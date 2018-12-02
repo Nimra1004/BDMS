@@ -1,73 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SELABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="SELABEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="C__MigrationHistory" EntityType="SELABModel.C__MigrationHistory" />
-    <EntitySet Name="AspNetRoles" EntityType="SELABModel.AspNetRole" />
-    <EntitySet Name="AspNetUserClaims" EntityType="SELABModel.AspNetUserClaim" />
-    <EntitySet Name="AspNetUserLogins" EntityType="SELABModel.AspNetUserLogin" />
-    <EntitySet Name="AspNetUsers" EntityType="SELABModel.AspNetUser" />
-    <EntitySet Name="Donations" EntityType="SELABModel.Donation" />
-    <EntitySet Name="Donors" EntityType="SELABModel.Donor" />
-    <EntitySet Name="Feedbacks" EntityType="SELABModel.Feedback" />
-    <EntitySet Name="GoogleMaps" EntityType="SELABModel.GoogleMap" />
-    <EntitySet Name="PostRequests" EntityType="SELABModel.PostRequest" />
-    <EntitySet Name="RegisteredUsers" EntityType="SELABModel.RegisteredUser" />
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SELABModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="SELABModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Donation__FK_Don__6FE99F9F" Association="SELABModel.FK__Donation__FK_Don__6FE99F9F">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Donation" EntitySet="Donations" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Donor__FK_donor___6D0D32F4" Association="SELABModel.FK__Donor__FK_donor___6D0D32F4">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Donor" EntitySet="Donors" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Feedback__FK_ID__787EE5A0" Association="SELABModel.FK__Feedback__FK_ID__787EE5A0">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Feedback" EntitySet="Feedbacks" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PostReque__FK_ID__75A278F5" Association="SELABModel.FK__PostReque__FK_ID__75A278F5">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="PostRequest" EntitySet="PostRequests" />
-    </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles" Association="SELABModel.AspNetUserRoles">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
       <PropertyRef Name="MigrationId" />
       <PropertyRef Name="ContextKey" />
     </Key>
-    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUsers" Relationship="SELABModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="AspNetUserClaim">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="AspNetUserLogin">
     <Key>
@@ -75,16 +34,16 @@
       <PropertyRef Name="ProviderKey" />
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="AspNetUser">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
     <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -95,14 +54,14 @@
     <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUserClaims" Relationship="SELABModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
-    <NavigationProperty Name="AspNetUserLogins" Relationship="SELABModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-    <NavigationProperty Name="Donations" Relationship="SELABModel.FK__Donation__FK_Don__6FE99F9F" FromRole="AspNetUser" ToRole="Donation" />
-    <NavigationProperty Name="Donors" Relationship="SELABModel.FK__Donor__FK_donor___6D0D32F4" FromRole="AspNetUser" ToRole="Donor" />
-    <NavigationProperty Name="Feedbacks" Relationship="SELABModel.FK__Feedback__FK_ID__787EE5A0" FromRole="AspNetUser" ToRole="Feedback" />
-    <NavigationProperty Name="PostRequests" Relationship="SELABModel.FK__PostReque__FK_ID__75A278F5" FromRole="AspNetUser" ToRole="PostRequest" />
-    <NavigationProperty Name="AspNetRoles" Relationship="SELABModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Donations" Relationship="Self.FK__Donation__FK_Don__2A4B4B5E" FromRole="AspNetUsers" ToRole="Donation" />
+    <NavigationProperty Name="Donors" Relationship="Self.FK__Donor__FK_donor___276EDEB3" FromRole="AspNetUsers" ToRole="Donor" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__FK_ID__33D4B598" FromRole="AspNetUsers" ToRole="Feedback" />
+    <NavigationProperty Name="PostRequests" Relationship="Self.FK__PostReque__FK_ID__30F848ED" FromRole="AspNetUsers" ToRole="PostRequest" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
   <EntityType Name="Donation">
     <Key>
@@ -110,9 +69,9 @@
     </Key>
     <Property Name="DonationsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Donatdate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Place" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Donation_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK__Donation__FK_Don__6FE99F9F" FromRole="Donation" ToRole="AspNetUser" />
+    <Property Name="Place" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_Donation_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Donation__FK_Don__2A4B4B5E" FromRole="Donation" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="Donor">
     <Key>
@@ -121,19 +80,19 @@
     <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="D_NoDonations" Type="Int32" />
     <Property Name="D_candonate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="FK_donor_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK__Donor__FK_donor___6D0D32F4" FromRole="Donor" ToRole="AspNetUser" />
+    <Property Name="FK_donor_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Donor__FK_donor___276EDEB3" FromRole="Donor" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="Message" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="FK_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK__Feedback__FK_ID__787EE5A0" FromRole="Feedback" ToRole="AspNetUser" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__Feedback__FK_ID__33D4B598" FromRole="Feedback" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="GoogleMap">
     <Key>
@@ -150,63 +109,63 @@
       <PropertyRef Name="Request_ID" />
     </Key>
     <Property Name="Request_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Contact" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="BloodGroup" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FK_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUser" Relationship="SELABModel.FK__PostReque__FK_ID__75A278F5" FromRole="PostRequest" ToRole="AspNetUser" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BloodGroup" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FK_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK__PostReque__FK_ID__30F848ED" FromRole="PostRequest" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="RegisteredUser">
     <Key>
       <PropertyRef Name="R_ID" />
     </Key>
     <Property Name="R_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="R_Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="R_Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="R_Gender" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="R_BloodGroup" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="R_Contact" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="R_Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Gender" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_BloodGroup" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Contact" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_Dateofbirth" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="R_City" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="R_Address" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="R_City" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="R_Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="R_AddedOn" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="R_Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="R_Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="SELABModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="AspNetUserClaim">
+      <Dependent Role="AspNetUserClaims">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="SELABModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="AspNetUserLogin">
+      <Dependent Role="AspNetUserLogins">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Donation__FK_Don__6FE99F9F">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="SELABModel.Donation" Role="Donation" Multiplicity="*" />
+  <Association Name="FK__Donation__FK_Don__2A4B4B5E">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Donation">
@@ -214,11 +173,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Donor__FK_donor___6D0D32F4">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="SELABModel.Donor" Role="Donor" Multiplicity="*" />
+  <Association Name="FK__Donor__FK_donor___276EDEB3">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Donor" Type="Self.Donor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Donor">
@@ -226,11 +185,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Feedback__FK_ID__787EE5A0">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="SELABModel.Feedback" Role="Feedback" Multiplicity="*" />
+  <Association Name="FK__Feedback__FK_ID__33D4B598">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Feedback">
@@ -238,11 +197,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PostReque__FK_ID__75A278F5">
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="SELABModel.PostRequest" Role="PostRequest" Multiplicity="*" />
+  <Association Name="FK__PostReque__FK_ID__30F848ED">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="PostRequest" Type="Self.PostRequest" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUser">
+      <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="PostRequest">
@@ -251,7 +210,48 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserRoles">
-    <End Type="SELABModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-    <End Type="SELABModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
   </Association>
+  <EntityContainer Name="SELABEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Donations" EntityType="Self.Donation" />
+    <EntitySet Name="Donors" EntityType="Self.Donor" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="GoogleMaps" EntityType="Self.GoogleMap" />
+    <EntitySet Name="PostRequests" EntityType="Self.PostRequest" />
+    <EntitySet Name="RegisteredUsers" EntityType="Self.RegisteredUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Donation__FK_Don__2A4B4B5E" Association="Self.FK__Donation__FK_Don__2A4B4B5E">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Donation" EntitySet="Donations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Donor__FK_donor___276EDEB3" Association="Self.FK__Donor__FK_donor___276EDEB3">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Donor" EntitySet="Donors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__FK_ID__33D4B598" Association="Self.FK__Feedback__FK_ID__33D4B598">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostReque__FK_ID__30F848ED" Association="Self.FK__PostReque__FK_ID__30F848ED">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PostRequest" EntitySet="PostRequests" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

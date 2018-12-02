@@ -127,7 +127,7 @@
     <Property Name="R_AddedOn" Type="datetime" Nullable="false" />
     <Property Name="R_Password" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Donation__FK_Don__6FE99F9F">
+  <Association Name="FK__Donation__FK_Don__2A4B4B5E">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
     <ReferentialConstraint>
@@ -139,7 +139,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Donor__FK_donor___6D0D32F4">
+  <Association Name="FK__Donor__FK_donor___276EDEB3">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Donor" Type="Self.Donor" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Feedback__FK_ID__787EE5A0">
+  <Association Name="FK__Feedback__FK_ID__33D4B598">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
     <ReferentialConstraint>
@@ -163,7 +163,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PostReque__FK_ID__75A278F5">
+  <Association Name="FK__PostReque__FK_ID__30F848ED">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="PostRequest" Type="Self.PostRequest" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,19 +244,19 @@
     <EntitySet Name="GoogleMap" EntityType="Self.GoogleMap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PostRequest" EntityType="Self.PostRequest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegisteredUser" EntityType="Self.RegisteredUser" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Donation__FK_Don__6FE99F9F" Association="Self.FK__Donation__FK_Don__6FE99F9F">
+    <AssociationSet Name="FK__Donation__FK_Don__2A4B4B5E" Association="Self.FK__Donation__FK_Don__2A4B4B5E">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Donation" EntitySet="Donation" />
     </AssociationSet>
-    <AssociationSet Name="FK__Donor__FK_donor___6D0D32F4" Association="Self.FK__Donor__FK_donor___6D0D32F4">
+    <AssociationSet Name="FK__Donor__FK_donor___276EDEB3" Association="Self.FK__Donor__FK_donor___276EDEB3">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Donor" EntitySet="Donor" />
     </AssociationSet>
-    <AssociationSet Name="FK__Feedback__FK_ID__787EE5A0" Association="Self.FK__Feedback__FK_ID__787EE5A0">
+    <AssociationSet Name="FK__Feedback__FK_ID__33D4B598" Association="Self.FK__Feedback__FK_ID__33D4B598">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Feedback" EntitySet="Feedback" />
     </AssociationSet>
-    <AssociationSet Name="FK__PostReque__FK_ID__75A278F5" Association="Self.FK__PostReque__FK_ID__75A278F5">
+    <AssociationSet Name="FK__PostReque__FK_ID__30F848ED" Association="Self.FK__PostReque__FK_ID__30F848ED">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="PostRequest" EntitySet="PostRequest" />
     </AssociationSet>
