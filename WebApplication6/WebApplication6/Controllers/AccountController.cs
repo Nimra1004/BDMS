@@ -165,9 +165,11 @@ namespace WebApplication6.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     SELABEntities db = new SELABEntities();
+                    var userdbmodel = db.AspNetUsers.Where(a => a.Email.Equals(model.R_Email)).FirstOrDefault();
+
                     RegisteredUser donor = new RegisteredUser();
                     donor.R_Name = model.R_Name;
-                    //donor.UserId = model.UserId;
+ 
                     donor.R_Email = model.R_Email;
                     donor.R_Gender = model.R_Gender;
                     donor.R_BloodGroup = model.R_BloodGroup;
@@ -176,14 +178,12 @@ namespace WebApplication6.Controllers
                     donor.R_City = model.R_City;
                     donor.R_Address = model.R_Address;
                     donor.R_Password = model.R_Password;
-                    //donor.FK_R_ID = User.Identity.GetUserId();
+                    donor.FK_R_ID = userdbmodel.Id;
+
 
                     donor.R_AddedOn = DateTime.Now;
-                    db.RegisteredUsers.Add(donor);
-                    //viewList.Add(donor);
-                    // db.RegisteredUsers.Add(donor);
+                    db.RegisteredUsers.Add(donor);                    
                     db.SaveChanges();
-                    // return View(viewList);
     
 
                     return RedirectToAction("Index", "Home");

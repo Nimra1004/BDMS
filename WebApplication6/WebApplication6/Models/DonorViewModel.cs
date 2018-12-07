@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,9 +20,17 @@ namespace WebApplication6.Models
         public DateTime R_Dateofbirth { get; set; }
         public string R_City { get; set; }
         public string R_Address { get; set; }
-        public System.DateTime R_AddedOn { get; set; }
+        public DateTime R_AddedOn { get; set; }
+        public string FK_R_ID { get; set; }
+        [DataType(DataType.Password), Required]
+        [Display(Name = "Password")]
         public string R_Password { get; set; }
-       // public string FK_R_ID { get; set; }
+        [DataType(DataType.Password), Required]
+        [System.ComponentModel.DataAnnotations.Compare("R_Password")]
+        [Display(Name = "ConfirmPassword")]
+        public string R_ConfirmPassword { get; set; }
+        //public string R_Password { get; set; }
+        // public string FK_R_ID { get; set; }
 
         public static IEnumerable<SelectListItem> GetGenderList()
         {

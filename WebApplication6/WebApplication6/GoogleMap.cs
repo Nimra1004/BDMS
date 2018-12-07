@@ -14,10 +14,19 @@ namespace WebApplication6
     
     public partial class GoogleMap
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GoogleMap()
+        {
+            this.PostRequests = new HashSet<PostRequest>();
+        }
+    
         public int ID { get; set; }
         public string CityName { get; set; }
         public Nullable<decimal> Latitude { get; set; }
         public Nullable<decimal> Longitude { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostRequest> PostRequests { get; set; }
     }
 }

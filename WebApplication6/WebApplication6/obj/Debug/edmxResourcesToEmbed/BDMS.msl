@@ -102,8 +102,6 @@
       <EntityTypeMapping TypeName="SELABModel.PostRequest">
         <MappingFragment StoreEntitySet="PostRequest">
           <ScalarProperty Name="Request_ID" ColumnName="Request_ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -125,6 +123,7 @@
           <ScalarProperty Name="R_Address" ColumnName="R_Address" />
           <ScalarProperty Name="R_AddedOn" ColumnName="R_AddedOn" />
           <ScalarProperty Name="R_Password" ColumnName="R_Password" />
+          <ScalarProperty Name="FK_R_ID" ColumnName="FK_R_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -136,5 +135,16 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spAddNewLocation" FunctionName="SELABModel.Store.spAddNewLocation" />
+    <FunctionImportMapping FunctionImportName="spGetMap" FunctionName="SELABModel.Store.spGetMap">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SELABModel.spGetMap_Result">
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

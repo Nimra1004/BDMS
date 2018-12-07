@@ -25,5 +25,8 @@ namespace WebApplication6
         public string R_Address { get; set; }
         public System.DateTime R_AddedOn { get; set; }
         public string R_Password { get; set; }
+        public string FK_R_ID { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

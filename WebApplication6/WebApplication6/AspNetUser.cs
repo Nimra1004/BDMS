@@ -23,6 +23,7 @@ namespace WebApplication6
             this.Donors = new HashSet<Donor>();
             this.Feedbacks = new HashSet<Feedback>();
             this.PostRequests = new HashSet<PostRequest>();
+            this.RegisteredUsers = new HashSet<RegisteredUser>();
             this.AspNetRoles = new HashSet<AspNetRole>();
         }
     
@@ -51,6 +52,8 @@ namespace WebApplication6
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostRequest> PostRequests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RegisteredUser> RegisteredUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }

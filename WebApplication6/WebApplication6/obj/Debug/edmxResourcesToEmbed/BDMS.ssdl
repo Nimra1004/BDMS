@@ -104,11 +104,9 @@
       <PropertyRef Name="Request_ID" />
     </Key>
     <Property Name="Request_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Contact" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="BloodGroup" Type="nvarchar" MaxLength="256" Nullable="false" />
-    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="FK_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
   <EntityType Name="RegisteredUser">
@@ -126,8 +124,9 @@
     <Property Name="R_Address" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="R_AddedOn" Type="datetime" Nullable="false" />
     <Property Name="R_Password" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FK_R_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Donation__FK_Don__2A4B4B5E">
+  <Association Name="FK__Donation__FK_Don__412EB0B6">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Donation" Type="Self.Donation" Multiplicity="*" />
     <ReferentialConstraint>
@@ -139,7 +138,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Donor__FK_donor___276EDEB3">
+  <Association Name="FK__Donor__FK_donor___3E52440B">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Donor" Type="Self.Donor" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,7 +150,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Feedback__FK_ID__33D4B598">
+  <Association Name="FK__Feedback__FK_ID__49C3F6B7">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
     <ReferentialConstraint>
@@ -163,7 +162,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PostReque__FK_ID__30F848ED">
+  <Association Name="FK__PostReque__Addre__4CA06362">
+    <End Role="GoogleMap" Type="Self.GoogleMap" Multiplicity="1" />
+    <End Role="PostRequest" Type="Self.PostRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoogleMap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PostRequest">
+        <PropertyRef Name="Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PostReque__FK_ID__4E88ABD4">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
     <End Role="PostRequest" Type="Self.PostRequest" Multiplicity="*" />
     <ReferentialConstraint>
@@ -172,6 +183,18 @@
       </Principal>
       <Dependent Role="PostRequest">
         <PropertyRef Name="FK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registere__FK_R___3A81B327">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="RegisteredUser" Type="Self.RegisteredUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegisteredUser">
+        <PropertyRef Name="FK_R_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -231,6 +254,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="spAddNewLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CityName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Latitude" Type="numeric" Mode="In" />
+    <Parameter Name="Longitude" Type="numeric" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetMap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="SELABModelStoreContainer">
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -244,21 +274,29 @@
     <EntitySet Name="GoogleMap" EntityType="Self.GoogleMap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PostRequest" EntityType="Self.PostRequest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegisteredUser" EntityType="Self.RegisteredUser" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Donation__FK_Don__2A4B4B5E" Association="Self.FK__Donation__FK_Don__2A4B4B5E">
+    <AssociationSet Name="FK__Donation__FK_Don__412EB0B6" Association="Self.FK__Donation__FK_Don__412EB0B6">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Donation" EntitySet="Donation" />
     </AssociationSet>
-    <AssociationSet Name="FK__Donor__FK_donor___276EDEB3" Association="Self.FK__Donor__FK_donor___276EDEB3">
+    <AssociationSet Name="FK__Donor__FK_donor___3E52440B" Association="Self.FK__Donor__FK_donor___3E52440B">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Donor" EntitySet="Donor" />
     </AssociationSet>
-    <AssociationSet Name="FK__Feedback__FK_ID__33D4B598" Association="Self.FK__Feedback__FK_ID__33D4B598">
+    <AssociationSet Name="FK__Feedback__FK_ID__49C3F6B7" Association="Self.FK__Feedback__FK_ID__49C3F6B7">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Feedback" EntitySet="Feedback" />
     </AssociationSet>
-    <AssociationSet Name="FK__PostReque__FK_ID__30F848ED" Association="Self.FK__PostReque__FK_ID__30F848ED">
+    <AssociationSet Name="FK__PostReque__Addre__4CA06362" Association="Self.FK__PostReque__Addre__4CA06362">
+      <End Role="GoogleMap" EntitySet="GoogleMap" />
+      <End Role="PostRequest" EntitySet="PostRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostReque__FK_ID__4E88ABD4" Association="Self.FK__PostReque__FK_ID__4E88ABD4">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="PostRequest" EntitySet="PostRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registere__FK_R___3A81B327" Association="Self.FK__Registere__FK_R___3A81B327">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="RegisteredUser" EntitySet="RegisteredUser" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
