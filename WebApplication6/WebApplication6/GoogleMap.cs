@@ -17,6 +17,7 @@ namespace WebApplication6
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GoogleMap()
         {
+            this.Donations = new HashSet<Donation>();
             this.PostRequests = new HashSet<PostRequest>();
         }
     
@@ -26,6 +27,8 @@ namespace WebApplication6
         public Nullable<decimal> Longitude { get; set; }
         public string Description { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Donation> Donations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostRequest> PostRequests { get; set; }
     }

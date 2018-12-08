@@ -15,13 +15,14 @@ namespace WebApplication6.Models
         public string CityName { get; set; }
 
         [Required(ErrorMessage = "Please enter city latitude")]
-        public double Latitude { get; set; }
+        public decimal Latitude { get; set; }
 
         [Required(ErrorMessage = "Please enter city longitude ")]
-        public double Longitude { get; set; }
+        public decimal Longitude { get; set; }
 
         public string Message { get; set; }
 
+        public string BloodGroup { get; set; }
         public static IEnumerable<SelectListItem> BloodGroupList()
         {
             IList<SelectListItem> items = new List<SelectListItem>

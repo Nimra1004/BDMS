@@ -8,11 +8,11 @@
 <h2>Details</h2>
 
 <div>
-    <h4>RegisteredUser</h4>
+    <h4>Donor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.R_ID)
+            @Html.LabelFor(model => model.R_ID, "ID")
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Email)
+            @Html.LabelFor(model => model.R_Email, "Email")
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Name)
+            @Html.LabelFor(model => model.R_Name, "Name")
         </dt>
 
         <dd>
@@ -36,23 +36,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Gender)
+            @Html.LabelFor(model => model.R_Gender, "Gender")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.R_Gender)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.R_BloodGroup)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.R_BloodGroup)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Contact)
+            @Html.LabelFor(model => model.R_Contact, "Contact")
         </dt>
 
         <dd>
@@ -60,15 +53,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Dateofbirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.R_Dateofbirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.R_City)
+            @Html.LabelFor(model => model.R_City, "City")
         </dt>
 
         <dd>
@@ -76,15 +61,41 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.R_Address)
+            @Html.LabelFor(model => model.R_BloodGroup, "Blood Group")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R_BloodGroup)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.R_Dateofbirth, "Date of Birth")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R_Dateofbirth)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.R_Address, "Address")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.R_Address)
         </dd>
 
+        <dt>
+                Can Donate
+        </dt>
+        <dd>
+                <label class="Label_Success">@ViewBag.Message</label>
+
+        </dd>
+
+
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

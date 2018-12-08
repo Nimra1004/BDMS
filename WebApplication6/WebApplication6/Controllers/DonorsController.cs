@@ -15,7 +15,12 @@ namespace WebApplication6.Controllers
 {
     public class DonorsController : Controller
     {
-        SELABEntities db = new SELABEntities();
+        public static int GetMonthDifference(DateTime startDate, System.DateTime endDate)
+        {
+            int monthsApart = 12 * (startDate.Year - endDate.Year) + startDate.Month - endDate.Month;
+            return Math.Abs(monthsApart);
+        }
+        SEProjectEntities db = new SEProjectEntities();
         // GET: Donor
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -69,6 +74,24 @@ namespace WebApplication6.Controllers
         public ActionResult Details(int id = 0)
         {
             RegisteredUser user1 = db.RegisteredUsers.Find(id);
+            using (var context = new SEProjectEntities())
+            {
+                var regUser = context.RegisteredUsers.Where(x => x.R_ID == id).SingleOrDefault();
+                RegisteredUser DOB = new RegisteredUser();
+                System.DateTime user = regUser.R_Dateofbirth;
+                // System.DateTime date1 = System.DateTime.Now;
+                DateTime now = DateTime.UtcNow;
+                System.DateTime past = user;
+                int monthDiff = GetMonthDifference(now, past);
+                if (monthDiff >= 3)
+                {
+                    ViewBag.Message = "Yes";
+                }
+                else
+                {
+                    ViewBag.Message = "No";
+                }
+            }
             return View(user1);
             //using (var context = new DonorsDataDbEntities1())
             //{
@@ -89,6 +112,7 @@ namespace WebApplication6.Controllers
             //}
             //return View();
         }
+        
 
     }
 }

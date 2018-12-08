@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace WebApplication6.Models
 {
     public class DonorViewModel
-    { 
+    {
         //public int R_ID { get; set; }
         //public string UserId { get; set; }
         public string R_Email { get; set; }
@@ -56,5 +56,6 @@ namespace WebApplication6.Models
             };
             return items;
         }
+          
     }
 }

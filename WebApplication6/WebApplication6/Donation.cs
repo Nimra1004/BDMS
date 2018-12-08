@@ -16,9 +16,10 @@ namespace WebApplication6
     {
         public int DonationsID { get; set; }
         public System.DateTime Donatdate { get; set; }
-        public string Place { get; set; }
+        public int Place { get; set; }
         public string FK_Donation_ID { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual GoogleMap GoogleMap { get; set; }
     }
 }
