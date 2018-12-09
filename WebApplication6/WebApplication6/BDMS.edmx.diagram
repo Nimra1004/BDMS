@@ -4,28 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab027bd1fe7d4981b4902bb70f54b356" Name="Diagram1">
-        <EntityTypeShape EntityType="SEProjectModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.AspNetUser" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.Donation" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.Donor" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.Feedback" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.GoogleMap" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.PostRequest" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEProjectModel.RegisteredUser" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
-        <AssociationConnector Association="SEProjectModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__Donation__FK_Don__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__Donor__FK_donor___276EDEB3" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__Feedback__FK_ID__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__PostReque__FK_ID__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__Registere__FK_R___239E4DCF" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__Donation__Place__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.FK__PostReque__Addre__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="SEProjectModel.AspNetUserRoles" ManuallyRouted="false" />
+      <Diagram DiagramId="00d342c79533465db692aa52f5b146e6" Name="Diagram1">
+        <EntityTypeShape EntityType="SEModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.AspNetUser" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.Donation" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.Donor" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.Feedback" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.GoogleMap" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.PostRequest" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEModel.RegisteredUser" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="SEModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK__Donation__FK_Don__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK__Donor__FK_donor___239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK__Feedback__FK_ID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK__PostReque__FK_ID__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.FK__Registere__FK_R___31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="SEModel.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

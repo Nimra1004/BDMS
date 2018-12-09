@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Blood Donation Management System</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @using Microsoft.AspNet.Identity
 
     <!-- Bootstrap -->
     <link href="@Url.Content("/css/bootstrap.css")" rel="stylesheet">
@@ -29,30 +30,34 @@
                 <div class="navbar-header">
 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                   
+
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li id="about">
-                            @Html.ActionLink("Home", "Index", "Home")
+                            @Html.ActionLink("Home", "Home", "Admin")
                         </li>
                         <li id="portfolio">
-                            @Html.ActionLink("Donors", "Donors", "Portfolio")
+                            @Html.ActionLink("List", "Index", "Admin")
                         </li>
                         <li id="contact">
-                            @Html.ActionLink("Post Request", "Index", "Contact")
+                            @Html.ActionLink("Add Users", "Create", "Admin")
                         </li>
-                        <li id="blog">
-                            @Html.ActionLink("Approve Request", "Home2", "Blog")
-                        </li>
+
                     </ul>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+                    {
+                    @Html.AntiForgeryToken()
+
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="nav-right:auto">
-                            @Html.Partial("_LoginPartial")
+                        <li>
+                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                         </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     </ul>
+                    }
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -62,7 +67,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        
+
         <footer id="fh5co-footer" role="contentinfo">
             <div class="container">
                 <div class="row row-pb-md">
