@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\HP\source\repos\WebApplication6\WebApplication6\BDMS.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Emaan Computer\Desktop\BDMS\WebApplication6\WebApplication6\BDMS.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

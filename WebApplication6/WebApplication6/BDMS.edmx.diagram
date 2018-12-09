@@ -4,26 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="00d342c79533465db692aa52f5b146e6" Name="Diagram1">
-        <EntityTypeShape EntityType="SEModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.AspNetUser" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.Donation" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.Donor" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.Feedback" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.GoogleMap" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.PostRequest" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEModel.RegisteredUser" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
-        <AssociationConnector Association="SEModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK__Donation__FK_Don__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK__Donor__FK_donor___239E4DCF" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK__Feedback__FK_ID__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK__PostReque__FK_ID__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.FK__Registere__FK_R___31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="SEModel.AspNetUserRoles" ManuallyRouted="false" />
+      <Diagram DiagramId="e5d0e51f7e3d4bd39e51ccca2b862efc" Name="Diagram1">
+        <EntityTypeShape EntityType="SELABModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.AspNetUser" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.Donation" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.Donor" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.Feedback" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.GoogleMap" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.PostRequest" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SELABModel.RegisteredUser" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <AssociationConnector Association="SELABModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__Donation__FK_Don__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__Donor__FK_donor___3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__Feedback__FK_ID__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__PostReque__FK_ID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__Registere__FK_R___3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__Donation__Place__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.FK__PostReque__Addre__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="SELABModel.AspNetUserRoles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

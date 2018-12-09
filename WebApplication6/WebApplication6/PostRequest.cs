@@ -15,13 +15,12 @@ namespace WebApplication6
     public partial class PostRequest
     {
         public int Request_ID { get; set; }
-        public string Name { get; set; }
-        public string Contact { get; set; }
         public string BloodGroup { get; set; }
-        public string Address { get; set; }
+        public int Address { get; set; }
         public string Status { get; set; }
         public string FK_ID { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual GoogleMap GoogleMap { get; set; }
     }
 }

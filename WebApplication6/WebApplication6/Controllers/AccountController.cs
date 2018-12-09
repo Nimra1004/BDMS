@@ -73,33 +73,25 @@ namespace WebApplication6.Controllers
             {
                 return View(model);
             }
-            if ((model.Email == "AdminUser@gmail.com") && (model.Password == "Admin@789"))
-            {
-                RedirectToLocal(returnUrl);
-                return RedirectToAction("Home", "Admin");
-            }
-
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            else 
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            switch (result)
             {
-                var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return RedirectToLocal(returnUrl);
-                    case SignInStatus.LockedOut:
-                        return View("Lockout");
-                    case SignInStatus.RequiresVerification:
-                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                    case SignInStatus.Failure:
-                    default:
-                        ModelState.AddModelError("", "Invalid login attempt.");
-                        return View(model);
-                }
+                case SignInStatus.Success:
+                    return RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                case SignInStatus.Failure:
+                default:
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    return View(model);
             }
         }
+
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -171,7 +163,7 @@ namespace WebApplication6.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    
+
                     SELABEntities db = new SELABEntities();
                     var userdbmodel = db.AspNetUsers.Where(a => a.Email.Equals(model.R_Email)).FirstOrDefault();
                     RegisteredUser donor = new RegisteredUser();
@@ -185,13 +177,12 @@ namespace WebApplication6.Controllers
                     donor.R_City = model.R_City;
                     donor.R_Address = model.R_Address;
                     donor.R_Password = model.R_Password;
+                    //donor.FK_R_ID = User.Identity.GetUserId();
                     donor.FK_R_ID = userdbmodel.Id;
-
                     donor.R_AddedOn = DateTime.Now;
                     db.RegisteredUsers.Add(donor);
                     //viewList.Add(donor);
                     // db.RegisteredUsers.Add(donor);
-   
                     db.SaveChanges();
                     // return View(viewList);
     

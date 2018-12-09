@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication6.Models.ApprovalViewModel>
+
+@{
+    ViewBag.Title = "Blood Requests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-size: 1400px;
+        background-image: url(../Images/bg1.jpg);
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    To View your own Requests: 
+    @Html.ActionLink("My Request", "MyReq")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodGroup)
+        </td>
+        <td>
+            <button value="Approve" class="btn btn-default">  @Html.ActionLink("Approve", "Approve", new { id=item.num }) </button>
+            <button value="Decline" class="btn btn-default">  @Html.ActionLink("Decline", "Decline", new { id = item.num }) </button>
+        </td>
+    </tr>
+}
+
+</table>
