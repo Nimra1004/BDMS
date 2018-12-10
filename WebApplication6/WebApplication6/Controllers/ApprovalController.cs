@@ -17,7 +17,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -33,8 +33,9 @@ namespace WebApplication6.Controllers
                 if ((req.BloodGroup == LoginUserBg) && (req.Status == "Decline"))
                 {
                     obj.BloodGroup = req.BloodGroup;
-                    GoogleMap g = list2.ElementAt(req.Address - 1);
+                    GoogleMap g = db.GoogleMaps.Where(x => x.ID == req.Address).SingleOrDefault();
                     obj.CityName = g.CityName;
+                    obj.Request_ID = req.Request_ID;
                     obj.Message = g.Description;
                     viewlist.Add(obj);
                 }                
@@ -45,7 +46,7 @@ namespace WebApplication6.Controllers
 
         public ActionResult IndexAdmin()
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -57,9 +58,10 @@ namespace WebApplication6.Controllers
                 PostRequest req = list1.ElementAt(i);
                 obj.num = obj.num + 1;
                 obj.BloodGroup = req.BloodGroup;
-                GoogleMap g = list2.ElementAt(req.Address - 1);
+                GoogleMap g = db.GoogleMaps.Where(x => x.ID == req.Address).SingleOrDefault();
                 obj.CityName = g.CityName;
                 obj.Message = g.Description;
+                obj.Request_ID = req.Request_ID;
                 viewlist.Add(obj);
             }
             return View(viewlist);
@@ -69,7 +71,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Decline(int id)
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -85,10 +87,11 @@ namespace WebApplication6.Controllers
                 if ((req.BloodGroup == LoginUserBg) && (req.Status == "Decline"))
                 {
                     obj.BloodGroup = req.BloodGroup;
-                    GoogleMap g = list2.ElementAt(req.Address - 1);
+                    GoogleMap g = db.GoogleMaps.Where(x => x.ID == req.Address).SingleOrDefault();
                     obj.CityName = g.CityName;
                     obj.Message = g.Description;
-                    if (obj.num != id)
+                    obj.Request_ID = req.Request_ID;
+                    if (obj.Request_ID != id)
                     {
                         viewlist.Add(obj);
                     }
@@ -103,7 +106,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Approve(int id)
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             
             if (ModelState.IsValid)
             {
@@ -128,7 +131,7 @@ namespace WebApplication6.Controllers
             string LoginId = User.Identity.GetUserId();
             List<ApprovalViewModel> mylist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             List<PostRequest> list1 = db.PostRequests.ToList();
             List<GoogleMap> list2 = db.GoogleMaps.ToList();
             obj.num = 0;
@@ -139,9 +142,10 @@ namespace WebApplication6.Controllers
                 if (req.FK_ID == LoginId)
                 {
                     obj.BloodGroup = req.BloodGroup;
-                    GoogleMap g = list2.ElementAt(req.Address - 1);
+                    GoogleMap g = db.GoogleMaps.Where(x => x.ID == req.Address).SingleOrDefault();
                     obj.CityName = g.CityName;
                     obj.Message = g.Description;
+                    obj.Request_ID = req.Request_ID;
                     obj.Status = req.Status;
                     mylist.Add(obj);
                 }

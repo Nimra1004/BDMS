@@ -89,7 +89,7 @@ namespace WebApplication6.Controllers
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl,  model.RememberMe });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -157,7 +157,7 @@ namespace WebApplication6.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.R_Name, Email = model.R_Email };
+                var user = new ApplicationUser { UserName = model.R_Email, Email = model.R_Email };
                 var result = await UserManager.CreateAsync(user, model.R_Password);
                 if (result.Succeeded)
                 {
@@ -169,7 +169,7 @@ namespace WebApplication6.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    LABEntities db = new LABEntities();
+                    SELABEntities db = new SELABEntities();
                     var userdbmodel = db.AspNetUsers.Where(a => a.Email.Equals(model.R_Email)).FirstOrDefault();
                     RegisteredUser donor = new RegisteredUser();
                     donor.R_Name = model.R_Name;
@@ -342,7 +342,7 @@ namespace WebApplication6.Controllers
             {
                 return View("Error");
             }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl,  model.RememberMe });
         }
 
         //

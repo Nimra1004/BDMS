@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="LABModelStoreContainer" CdmEntityContainer="LABEntities">
+  <EntityContainerMapping StorageEntityContainer="SELABModelStoreContainer" CdmEntityContainer="SELABEntities">
     <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="LABModel.C__MigrationHistory">
+      <EntityTypeMapping TypeName="SELABModel.C__MigrationHistory">
         <MappingFragment StoreEntitySet="__MigrationHistory">
           <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
           <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="LABModel.AspNetRole">
+      <EntityTypeMapping TypeName="SELABModel.AspNetRole">
         <MappingFragment StoreEntitySet="AspNetRoles">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="LABModel.AspNetUserClaim">
+      <EntityTypeMapping TypeName="SELABModel.AspNetUserClaim">
         <MappingFragment StoreEntitySet="AspNetUserClaims">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="LABModel.AspNetUserLogin">
+      <EntityTypeMapping TypeName="SELABModel.AspNetUserLogin">
         <MappingFragment StoreEntitySet="AspNetUserLogins">
           <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
           <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="LABModel.AspNetUser">
+      <EntityTypeMapping TypeName="SELABModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -57,7 +57,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Donations">
-      <EntityTypeMapping TypeName="LABModel.Donation">
+      <EntityTypeMapping TypeName="SELABModel.Donation">
         <MappingFragment StoreEntitySet="Donation">
           <ScalarProperty Name="DonationsID" ColumnName="DonationsID" />
           <ScalarProperty Name="Donatdate" ColumnName="Donatdate" />
@@ -67,7 +67,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Donors">
-      <EntityTypeMapping TypeName="LABModel.Donor">
+      <EntityTypeMapping TypeName="SELABModel.Donor">
         <MappingFragment StoreEntitySet="Donor">
           <ScalarProperty Name="D_ID" ColumnName="D_ID" />
           <ScalarProperty Name="D_NoDonations" ColumnName="D_NoDonations" />
@@ -77,7 +77,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="LABModel.Feedback">
+      <EntityTypeMapping TypeName="SELABModel.Feedback">
         <MappingFragment StoreEntitySet="Feedback">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -88,7 +88,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="GoogleMaps">
-      <EntityTypeMapping TypeName="LABModel.GoogleMap">
+      <EntityTypeMapping TypeName="SELABModel.GoogleMap">
         <MappingFragment StoreEntitySet="GoogleMap">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CityName" ColumnName="CityName" />
@@ -99,7 +99,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PostRequests">
-      <EntityTypeMapping TypeName="LABModel.PostRequest">
+      <EntityTypeMapping TypeName="SELABModel.PostRequest">
         <MappingFragment StoreEntitySet="PostRequest">
           <ScalarProperty Name="Request_ID" ColumnName="Request_ID" />
           <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
@@ -110,7 +110,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RegisteredUsers">
-      <EntityTypeMapping TypeName="LABModel.RegisteredUser">
+      <EntityTypeMapping TypeName="SELABModel.RegisteredUser">
         <MappingFragment StoreEntitySet="RegisteredUser">
           <ScalarProperty Name="R_ID" ColumnName="R_ID" />
           <ScalarProperty Name="R_Email" ColumnName="R_Email" />
@@ -126,7 +126,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="LABModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="SELABModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
@@ -134,5 +134,16 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spAddNewLocation" FunctionName="SELABModel.Store.spAddNewLocation" />
+    <FunctionImportMapping FunctionImportName="spGetMap" FunctionName="SELABModel.Store.spGetMap">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SELABModel.spGetMap_Result">
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

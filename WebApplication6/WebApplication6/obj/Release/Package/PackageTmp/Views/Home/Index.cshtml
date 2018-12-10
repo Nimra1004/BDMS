@@ -1,0 +1,359 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>- @ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link href="@Url.Content("/css/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("/css/modern-business.css")" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<!-- Theme CSS -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Custom Fonts -->
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="~/css/agency.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+
+
+
+<!-- Header -->
+<head>
+
+
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+
+        <div class="w3-content w3-section" style="max-width:1700px">
+                <h1 style="color:#FFE033; margin-left:10px">BLOOD DONATION MANAGEMENT SYSTEM</h1>
+            <img class="mySlides w3-animate-fading" src="../images/0122.jpg" style="width:100%" />
+            <img class="mySlides w3-animate-fading" src="../images/45.jpg" style="width:100%" />
+            <img class="mySlides w3-animate-fading" src="../images/Slide10.jpg" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="../images/89.jpg" style="width:100%">
+        </div>
+
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 9000);
+            }
+        </script>
+    </body>
+    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-check-circle" style="color:#FFE033"></i> Blood Group Details</h3>
+                <p>Blood types are very important when a blood transfusion is necessary. In a blood transfusion, a patient must receive a blood type compatible with his or her own blood type. If the blood types are not compatible, red blood cells will clump together, making clots that can block blood vessels and cause death.</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-pencil" style="color:#FFE033"></i> World Blood Donors Day</h3>
+                <p>Every year on 14 June, countries around the world celebrate World Blood Donor Day (WBDD). The event, established in 2004, serves to raise awareness of the need for safe blood and blood products, and to thank blood donors for their voluntary, life-saving gifts of blood.</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3><i class="fa fa-folder-open" style="color:#FFE033"></i>Safety Measures</h3>
+                <p>To minimize the chance of an adverse reaction during a transfusion. Usually a few days beforehand, the patient is cross-matched with the donor blood.After double-checking labels on the bags of blood that are about to be given to ensure the units are intended for that recipient, then gives the blood to the recipient slowly. </p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+<hr />
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 style="color:#FFE033">Donation Related Quotes</h2>
+                <hr>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../images/Untitled-1.jpg">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../images/3.jpg">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../images/999.jpg">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../Images/54.jpg">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../Images/63.jpg">
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+
+                <img class="img-responsive img-home-portfolio" src="../Images/369.jpg">
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading" style="color:#FFE033">What Our Customers Say!</h2>
+                <h3 class="section-subheading text-muted">Customers FeedBack.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="../images/About/1.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Our Humble Beginnig</h4>
+                                <h4 class="subheading">@ViewBag.Message11</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">@ViewBag.Message1</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="../images/About/2.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>March 2011</h4>
+                                <h4 class="subheading">@ViewBag.Message22</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">@ViewBag.Message2</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="../images/About/3.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>December 2012</h4>
+                                <h4 class="subheading">@ViewBag.Message33</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">@ViewBag.Message3</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="../images/About/4.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 2014</h4>
+                                <h4 class="subheading">@ViewBag.Message44</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">@ViewBag.Message4</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br>Of Our
+                                <br>Story!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact">
+    <div class="container" style="background-image:url(../images/map-image.png) ; width:auto">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading" style="color:#FFE033">Comments</h2>
+                <h3 class="section-subheading text-muted" style="color:white">Share Your Views Here</h3>
+            </div>
+            @model WebApplication6.Feedback
+
+            @{
+                ViewBag.Title = "Home";
+            }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group"  style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group"  style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group"  style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                        @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group"  style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+
+
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+        <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
+
+        <!-- Theme JavaScript -->
+        <script src="js/agency.min.js"></script>
+        <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="js/nivo-lightbox.js"></script>
+        <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+        <script type="text/javascript" src="js/contact_me.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <!-- jQuery -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="@Url.Content("/js/bootstrap.js")"></script>
+        <script src="@Url.Content("/js/modern-business.js")"></script>
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
+
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+        <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
+
+        <!-- Theme JavaScript -->
+        <script src="js/agency.min.js"></script>
+

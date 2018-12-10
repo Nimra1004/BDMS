@@ -12,11 +12,13 @@ namespace WebApplication6
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class LABEntities : DbContext
+    public partial class SELABEntities : DbContext
     {
-        public LABEntities()
-            : base("name=LABEntities")
+        public SELABEntities()
+            : base("name=SELABEntities")
         {
         }
     
@@ -36,5 +38,31 @@ namespace WebApplication6
         public virtual DbSet<GoogleMap> GoogleMaps { get; set; }
         public virtual DbSet<PostRequest> PostRequests { get; set; }
         public virtual DbSet<RegisteredUser> RegisteredUsers { get; set; }
+    
+        public virtual int spAddNewLocation(string cityName, Nullable<decimal> latitude, Nullable<decimal> longitude, string description)
+        {
+            var cityNameParameter = cityName != null ?
+                new ObjectParameter("CityName", cityName) :
+                new ObjectParameter("CityName", typeof(string));
+    
+            var latitudeParameter = latitude.HasValue ?
+                new ObjectParameter("Latitude", latitude) :
+                new ObjectParameter("Latitude", typeof(decimal));
+    
+            var longitudeParameter = longitude.HasValue ?
+                new ObjectParameter("Longitude", longitude) :
+                new ObjectParameter("Longitude", typeof(decimal));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spAddNewLocation", cityNameParameter, latitudeParameter, longitudeParameter, descriptionParameter);
+        }
+    
+        public virtual ObjectResult<spGetMap_Result> spGetMap()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetMap_Result>("spGetMap");
+        }
     }
 }

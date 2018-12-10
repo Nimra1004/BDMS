@@ -12,7 +12,7 @@ namespace WebApplication6.Controllers
 {
     public class AdminController : Controller
     {
-        private LABEntities db = new LABEntities();
+        private SELABEntities db = new SELABEntities();
 
         public ActionResult Home()
         {

@@ -23,7 +23,7 @@ namespace WebApplication6.Controllers
             int monthsApart = 12 * (startDate.Year - endDate.Year) + startDate.Month - endDate.Month;
             return Math.Abs(monthsApart);
         }
-        LABEntities db = new LABEntities();
+        SELABEntities db = new SELABEntities();
         // GET: Donor
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -134,7 +134,7 @@ namespace WebApplication6.Controllers
             model.FK_Donation_ID = User.Identity.GetUserId();
             
             RegisteredUser user1 = db.RegisteredUsers.Find(id);
-            using (var context = new LABEntities())
+            using (var context = new SELABEntities())
             {
                 var regUser = context.RegisteredUsers.Where(x => x.R_ID == id).SingleOrDefault();
                 RegisteredUser DOB = new RegisteredUser();

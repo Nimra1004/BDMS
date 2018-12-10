@@ -19,5 +19,6 @@ namespace WebApplication6.Models
         public string BloodGroup { get; set; }
 
         public string Status { get; set; }
+        public int Request_ID { get; set; }
     }
 }

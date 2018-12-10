@@ -15,7 +15,7 @@ namespace WebApplication6.Controllers
     
     public class FeedbacksController : Controller
     {
-        private LABEntities db = new LABEntities();
+        private SELABEntities db = new SELABEntities();
 
         // GET: Feedbacks
         
@@ -61,7 +61,7 @@ namespace WebApplication6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Email,Message,FK_ID")] FeedBackViewModel feedback)
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             Feedback fb = new Feedback();
             if (ModelState.IsValid)
             {

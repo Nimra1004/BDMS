@@ -1,0 +1,155 @@
+﻿@model WebApplication6.Models.DonorViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section Scripts {
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#R_Dateofbirth").datepicker();
+        })
+    </script>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" style="color:#FFE033">
+                    REGISTER!
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="active" style="color:#FFFFFF">Sign up</li>
+                </ol>
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                @Html.LabelFor(model => model.R_Email, "Email:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Email, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Email)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                @Html.LabelFor(model => model.R_Name, "Name:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.R_Name, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Name)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                @Html.LabelFor(model => model.R_Gender, "Gender:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.R_Gender, WebApplication6.Models.DonorViewModel.GetGenderList(), " - - - - - Select One- - - - - ", htmlAttributes: new { size = "1", style = "width:250px, height:100px,color:#000000" })
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_BloodGroup, "BloodGroup:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.DropDownListFor(x => x.R_BloodGroup, WebApplication6.Models.DonorViewModel.BloodGroupList(), " - - - - - Select One- - - - - ", htmlAttributes: new { size = "1", style = "width:250px, height:100px,color:#000000" })
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_Contact, "Contact:", htmlAttributes: new { type = "number", @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_Contact, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Contact)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_Dateofbirth, "Date Of Birth:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_Dateofbirth)
+                    @Html.ValidationMessageFor(model => model.R_Dateofbirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_City, "City:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_City, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_City)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_Address, "Address:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_Address, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Address)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                @Html.LabelFor(model => model.R_Password, "Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_Password, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_Password)
+                </div>
+            </div>
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+                @Html.LabelFor(model => model.R_ConfirmPassword, "Confirm Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.R_ConfirmPassword, new { style = "width: 200px,color:#000000" })
+                    @Html.ValidationMessageFor(model => model.R_ConfirmPassword)
+                </div>
+            </div>
+
+
+            <div class="form-group" style="color:darkgoldenrod ; margin-left:370px; font-size:17px">
+
+                <div class="col-md-offset-2 col-md-10">
+
+                    <input type="submit" value="Register" class="btn btn-default" />
+                    <br />
+                    @Html.ActionLink("Already Have an account", "Login", "Account", null, new { onclick = "return confirm('Are you sure?')" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="label-success"> @ViewBag.SuccessMessage</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <label class="label-danger"> @ViewBag.DuplicateMessage</label>
+                </div>
+            </div>
+
+    </div>
+    </div>
+   
+}
+

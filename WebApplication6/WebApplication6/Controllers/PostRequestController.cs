@@ -29,7 +29,7 @@ namespace WebApplication6.Controllers
                 try
                 {
 
-                    LABEntities db = new LABEntities();
+                    SELABEntities db = new SELABEntities();
                     GoogleMap Map = new GoogleMap();
                     PostRequest req = new PostRequest();
                     Map.CityName = model.CityName;

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LABModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SELABModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -270,7 +270,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LABModelStoreContainer">
+        <Function Name="spAddNewLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CityName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Latitude" Type="numeric" Mode="In" />
+          <Parameter Name="Longitude" Type="numeric" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spGetMap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SELABModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -332,7 +339,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SELABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -586,7 +593,7 @@
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="LABEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SELABEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
@@ -638,15 +645,28 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <FunctionImport Name="spAddNewLocation">
+            <Parameter Name="CityName" Mode="In" Type="String" />
+            <Parameter Name="Latitude" Mode="In" Type="Decimal" />
+            <Parameter Name="Longitude" Mode="In" Type="Decimal" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetMap" ReturnType="Collection(SELABModel.spGetMap_Result)" />
         </EntityContainer>
+        <ComplexType Name="spGetMap_Result">
+          <Property Type="String" Name="CityName" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LABModelStoreContainer" CdmEntityContainer="LABEntities">
+        <EntityContainerMapping StorageEntityContainer="SELABModelStoreContainer" CdmEntityContainer="SELABEntities">
           <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="LABModel.C__MigrationHistory">
+            <EntityTypeMapping TypeName="SELABModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
                 <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
                 <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
@@ -656,7 +676,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="LABModel.AspNetRole">
+            <EntityTypeMapping TypeName="SELABModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -664,7 +684,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="LABModel.AspNetUserClaim">
+            <EntityTypeMapping TypeName="SELABModel.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -674,7 +694,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="LABModel.AspNetUserLogin">
+            <EntityTypeMapping TypeName="SELABModel.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -683,7 +703,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="LABModel.AspNetUser">
+            <EntityTypeMapping TypeName="SELABModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -701,7 +721,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Donations">
-            <EntityTypeMapping TypeName="LABModel.Donation">
+            <EntityTypeMapping TypeName="SELABModel.Donation">
               <MappingFragment StoreEntitySet="Donation">
                 <ScalarProperty Name="DonationsID" ColumnName="DonationsID" />
                 <ScalarProperty Name="Donatdate" ColumnName="Donatdate" />
@@ -711,7 +731,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Donors">
-            <EntityTypeMapping TypeName="LABModel.Donor">
+            <EntityTypeMapping TypeName="SELABModel.Donor">
               <MappingFragment StoreEntitySet="Donor">
                 <ScalarProperty Name="D_ID" ColumnName="D_ID" />
                 <ScalarProperty Name="D_NoDonations" ColumnName="D_NoDonations" />
@@ -721,7 +741,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="LABModel.Feedback">
+            <EntityTypeMapping TypeName="SELABModel.Feedback">
               <MappingFragment StoreEntitySet="Feedback">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -732,7 +752,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GoogleMaps">
-            <EntityTypeMapping TypeName="LABModel.GoogleMap">
+            <EntityTypeMapping TypeName="SELABModel.GoogleMap">
               <MappingFragment StoreEntitySet="GoogleMap">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
@@ -743,7 +763,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PostRequests">
-            <EntityTypeMapping TypeName="LABModel.PostRequest">
+            <EntityTypeMapping TypeName="SELABModel.PostRequest">
               <MappingFragment StoreEntitySet="PostRequest">
                 <ScalarProperty Name="Request_ID" ColumnName="Request_ID" />
                 <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
@@ -754,7 +774,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RegisteredUsers">
-            <EntityTypeMapping TypeName="LABModel.RegisteredUser">
+            <EntityTypeMapping TypeName="SELABModel.RegisteredUser">
               <MappingFragment StoreEntitySet="RegisteredUser">
                 <ScalarProperty Name="R_ID" ColumnName="R_ID" />
                 <ScalarProperty Name="R_Email" ColumnName="R_Email" />
@@ -770,7 +790,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="LABModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="SELABModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
@@ -778,6 +798,17 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spAddNewLocation" FunctionName="SELABModel.Store.spAddNewLocation" />
+          <FunctionImportMapping FunctionImportName="spGetMap" FunctionName="SELABModel.Store.spGetMap">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SELABModel.spGetMap_Result">
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

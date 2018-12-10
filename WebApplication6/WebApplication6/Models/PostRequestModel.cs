@@ -21,8 +21,10 @@ namespace WebApplication6.Models
         [Required(ErrorMessage = "Please enter city longitude ")]
         public decimal Longitude { get; set; }
 
+        [Required]
         public string Message { get; set; }
 
+        [Required]
         public string BloodGroup { get; set; }
         public static IEnumerable<SelectListItem> BloodGroupList()
         {

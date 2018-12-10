@@ -11,7 +11,7 @@ namespace WebApplication6.Models
        
         public static List<int> GetDurationInEnglish(DateTime from, DateTime to)
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             try
             {
                 //to = DateTime.Now;

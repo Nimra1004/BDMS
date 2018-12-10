@@ -11,7 +11,7 @@ namespace WebApplication6.Controllers
         
         public ActionResult Index()
         {
-            LABEntities db = new LABEntities();
+            SELABEntities db = new SELABEntities();
             Feedback fb = new Feedback();
             List<Feedback> list1 = db.Feedbacks.ToList();
             int z = list1.Count();

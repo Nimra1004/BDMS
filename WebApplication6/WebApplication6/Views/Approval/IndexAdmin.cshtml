@@ -47,8 +47,8 @@
                 @Html.DisplayFor(modelItem => item.BloodGroup)
             </td>
             <td>
-                <button value="Approve" class="btn btn-default">  @Html.ActionLink("Approve", "Approve", new { id = item.num }) </button>
-                <button value="Decline" class="btn btn-default">  @Html.ActionLink("Decline", "Decline", new { id = item.num }) </button>
+                <button value="Approve" class="btn btn-default">  @Html.ActionLink("Approve", "Approve", new { id = item.Request_ID }) </button>
+                <button value="Decline" class="btn btn-default">  @Html.ActionLink("Decline", "Decline", new { id = item.Request_ID }) </button>
             </td>
         </tr>
     }

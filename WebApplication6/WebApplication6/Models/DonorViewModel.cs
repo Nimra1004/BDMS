@@ -12,19 +12,32 @@ namespace WebApplication6.Models
     {
         //public int R_ID { get; set; }
         //public string UserId { get; set; }
+        [Required]
+        [EmailAddress]
         public string R_Email { get; set; }
+        [Required]
         public string R_Name { get; set; }
+        [Required]
         public string R_Gender { get; set; }
+        [Required]
         public string R_BloodGroup { get; set; }
+        [Required]
         public string R_Contact { get; set; }
+        [Required]
         public DateTime R_Dateofbirth { get; set; }
+        [Required]
         public string R_City { get; set; }
+        [Required]
         public string R_Address { get; set; }
+        [Required]
         public DateTime R_AddedOn { get; set; }
+        [Required]
         public string FK_R_ID { get; set; }
+
         [DataType(DataType.Password), Required]
         [Display(Name = "Password")]
         public string R_Password { get; set; }
+
         [DataType(DataType.Password), Required]
         [System.ComponentModel.DataAnnotations.Compare("R_Password")]
         [Display(Name = "ConfirmPassword")]
