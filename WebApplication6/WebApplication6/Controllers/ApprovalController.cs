@@ -9,11 +9,12 @@ using System.Data.Entity;
 
 namespace WebApplication6.Controllers
 {
-    [Authorize]
+    
     public class ApprovalController : Controller
     {
 
         // GET: Approval
+        [Authorize]
         public ActionResult Index()
         {
             SELABEntities db = new SELABEntities();
@@ -40,6 +41,32 @@ namespace WebApplication6.Controllers
             }
             return View(viewlist);
         }
+
+
+        public ActionResult IndexAdmin()
+        {
+            SELABEntities db = new SELABEntities();
+            List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
+            ApprovalViewModel obj = new ApprovalViewModel();
+            List<PostRequest> list1 = db.PostRequests.ToList();
+            List<GoogleMap> list2 = db.GoogleMaps.ToList();
+            
+            obj.num = 0;
+            for (int i = 0; i < list1.Count; i++)
+            {
+                PostRequest req = list1.ElementAt(i);
+                obj.num = obj.num + 1;
+                obj.BloodGroup = req.BloodGroup;
+                GoogleMap g = list2.ElementAt(req.Address - 1);
+                obj.CityName = g.CityName;
+                obj.Message = g.Description;
+                viewlist.Add(obj);
+            }
+            return View(viewlist);
+        }
+
+
+        [Authorize]
         public ActionResult Decline(int id)
         {
             SELABEntities db = new SELABEntities();
@@ -73,6 +100,7 @@ namespace WebApplication6.Controllers
             }
             return View(viewlist);
         }
+        [Authorize]
         public ActionResult Approve(int id)
         {
             SELABEntities db = new SELABEntities();
@@ -94,6 +122,7 @@ namespace WebApplication6.Controllers
 
             return View();
         }
+        [Authorize]
         public ActionResult MyReq()
         {
             string LoginId = User.Identity.GetUserId();

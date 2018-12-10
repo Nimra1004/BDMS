@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication6.Models.ApprovalViewModel>
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header" style="color:#FFE033">
+           USER REQUESTS!
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="active" style="color:#FFFFFF">User Request</li>
+        </ol>
+    </div>
+</div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup)
+            </td>
+            <td>
+                <button value="Approve" class="btn btn-default">  @Html.ActionLink("Approve", "Approve", new { id = item.num }) </button>
+                <button value="Decline" class="btn btn-default">  @Html.ActionLink("Decline", "Decline", new { id = item.num }) </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+

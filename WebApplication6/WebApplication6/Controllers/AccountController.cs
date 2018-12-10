@@ -73,6 +73,11 @@ namespace WebApplication6.Controllers
             {
                 return View(model);
             }
+            if ((model.Email == "AdminUser@gmail.com") && (model.Password == "Admin@789"))
+            {
+                RedirectToLocal(returnUrl);
+                return RedirectToAction("Home", "Admin");
+            }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -152,7 +157,7 @@ namespace WebApplication6.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.R_Email, Email = model.R_Email };
+                var user = new ApplicationUser { UserName = model.R_Name, Email = model.R_Email };
                 var result = await UserManager.CreateAsync(user, model.R_Password);
                 if (result.Succeeded)
                 {
@@ -176,7 +181,6 @@ namespace WebApplication6.Controllers
                     donor.R_Dateofbirth = model.R_Dateofbirth;
                     donor.R_City = model.R_City;
                     donor.R_Address = model.R_Address;
-                    donor.R_Password = model.R_Password;
                     //donor.FK_R_ID = User.Identity.GetUserId();
                     donor.FK_R_ID = userdbmodel.Id;
                     donor.R_AddedOn = DateTime.Now;

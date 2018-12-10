@@ -4,6 +4,19 @@
     ViewBag.Title = "MyRequests";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header" style="color:#FFE033">
+            MY REQUEST!
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="active" style="color:#FFFFFF">My Request</li>
+        </ol>
+    </div>
+</div>
 
 <table class="table">
     <tr>

@@ -12,12 +12,20 @@ using WebApplication6.Models;
 
 namespace WebApplication6.Controllers
 {
+    
     public class FeedbacksController : Controller
     {
         private SELABEntities db = new SELABEntities();
 
         // GET: Feedbacks
+        
         public ActionResult Index()
+        {
+            var feedbacks = db.Feedbacks.Include(f => f.AspNetUser);
+            return View(feedbacks.ToList());
+        }
+        
+        public ActionResult IndexUser()
         {
             var feedbacks = db.Feedbacks.Include(f => f.AspNetUser);
             return View(feedbacks.ToList());
@@ -39,6 +47,7 @@ namespace WebApplication6.Controllers
         }
 
         // GET: Feedbacks/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -63,7 +72,7 @@ namespace WebApplication6.Controllers
 
                 db.Feedbacks.Add(fb);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home"); ;
             }
 
             ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Email", fb.FK_ID);
@@ -71,6 +80,7 @@ namespace WebApplication6.Controllers
         }
 
         // GET: Feedbacks/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +93,7 @@ namespace WebApplication6.Controllers
                 return HttpNotFound();
             }
             ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Email", feedback.FK_ID);
+            feedback.FK_ID = User.Identity.GetUserId();
             return View(feedback);
         }
 
@@ -95,9 +106,10 @@ namespace WebApplication6.Controllers
         {
             if (ModelState.IsValid)
             {
+                feedback.FK_ID = User.Identity.GetUserId();
                 db.Entry(feedback).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.FK_ID = new SelectList(db.AspNetUsers, "Id", "Email", feedback.FK_ID);
             return View(feedback);

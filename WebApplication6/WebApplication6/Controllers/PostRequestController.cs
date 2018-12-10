@@ -13,8 +13,7 @@ namespace WebApplication6.Controllers
     public class PostRequestController : Controller
     {
         // GET: PostRequest
-
-        public ActionResult Index()
+        public ActionResult AfterReq()
         {
             return View();
         }
@@ -48,7 +47,7 @@ namespace WebApplication6.Controllers
                     db.PostRequests.Add(req);
                     db.SaveChanges();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("AfterReq", "PostRequest");
                 }
                catch(DbEntityValidationException dbEx)
                 {

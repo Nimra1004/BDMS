@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApplication6.RegisteredUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_BloodGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Dateofbirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_AddedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_BloodGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Dateofbirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_AddedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.R_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.R_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.R_ID })
+        </td>
+    </tr>
+}
+
+</table>

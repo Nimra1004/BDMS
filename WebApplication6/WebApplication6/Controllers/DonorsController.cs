@@ -16,7 +16,6 @@ namespace WebApplication6.Controllers
     [Authorize]
     public class DonorsController : Controller
     {
-        
         public static int GetMonthDifference(DateTime startDate, System.DateTime endDate)
         {
             int monthsApart = 12 * (startDate.Year - endDate.Year) + startDate.Month - endDate.Month;

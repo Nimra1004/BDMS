@@ -3,6 +3,19 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header" style="color:#FFE033">
+            FEEDBACK DETAILS!
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="active" style="color:#FFFFFF">Feedback Details</li>
+        </ol>
+    </div>
+</div>
 
 <h2>Details</h2>
 
@@ -34,17 +47,8 @@
             @Html.DisplayFor(model => model.Message)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUser.Email)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

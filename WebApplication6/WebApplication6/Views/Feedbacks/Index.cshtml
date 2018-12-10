@@ -3,8 +3,19 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header" style="color:#FFE033">
+            USER FEEDBACKS DETAILS!
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="active" style="color:#FFFFFF">User Feedbacks Details</li>
+        </ol>
+    </div>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -41,7 +52,6 @@
             @Html.DisplayFor(modelItem => item.AspNetUser.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

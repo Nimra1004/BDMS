@@ -2,24 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Blood Donation Management System</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title></title>
     <!-- Bootstrap -->
     <link href="@Url.Content("/css/bootstrap.css")" rel="stylesheet">
     <link href="@Url.Content("/css/modern-business.css")" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
-    <!--[if lt IE 9]>
+
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
+
 </head>
-<body>
+<body id="page-top" class="index" style="background-color:black; font-display:block; font-style:italic">
     <div class="section">
         <!-- Navigation
         ==========================================-->
@@ -29,30 +25,34 @@
                 <div class="navbar-header">
 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                   
+
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
-                        <li id="about">
-                            @Html.ActionLink("Home", "Index", "Home")
+                        <li id="Home" style="color:darkgoldenrod">
+                            @Html.ActionLink("Blood Donation Management System", "Index", "Home")
                         </li>
                         <li id="Donors">
                             @Html.ActionLink("Donors", "Index", "Donors")
                         </li>
-                        <li id="contact">
+                        <li id="Approval">
                             @Html.ActionLink("Post Request", "Request", "PostRequest")
                         </li>
-                        <li id="blog">
+                        <li id="Approval">
                             @Html.ActionLink("Approve Request", "Index", "Approval")
+                        </li>
+                        <li id="Approval">
+                            @Html.ActionLink("FeedBacks", "IndexUser", "Feedbacks")
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="nav-right:auto">
+                        <li>
                             @Html.Partial("_LoginPartial")
                         </li>
                     </ul>
+
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -62,35 +62,51 @@
 
     <div class="container body-content">
         @RenderBody()
-        
-        <footer id="fh5co-footer" role="contentinfo">
-            <div class="container">
-                <div class="row row-pb-md">
-                    <div class="col-md-4 fh5co-widget ">
-                        <div class="row copyright">
-                            <div class="col-md-12 text-center">
-                                <p>
-                                    <small class="block">
-                                        &copy;
-                                        Copyright &copy; Blood Management System 2018.
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy;Blood Donation Management System 2018</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+
+    
     <script src="@Url.Content("/js/bootstrap.js")"></script>
     <script src="@Url.Content("/js/modern-business.js")"></script>
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
 
-
+   
 </body>
 </html>
-
