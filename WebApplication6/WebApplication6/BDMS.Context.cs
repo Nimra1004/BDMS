@@ -13,10 +13,10 @@ namespace WebApplication6
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SELABEntities : DbContext
+    public partial class LABEntities : DbContext
     {
-        public SELABEntities()
-            : base("name=SELABEntities")
+        public LABEntities()
+            : base("name=LABEntities")
         {
         }
     

@@ -317,6 +317,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostRequestModel.cs" />
     <Compile Include="Models\DetailsViewModel.cs" />
+    <Compile Include="Models\RegisteredUserViewModel.cs" />
     <Compile Include="PostRequest.cs">
       <DependentUpon>BDMS.tt</DependentUpon>
     </Compile>
@@ -486,6 +487,9 @@
     <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="fonts\font-awesome\scss\_stacked.scss" />
     <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="less\agency.less" />
+    <Content Include="less\mixins.less" />
+    <Content Include="less\variables.less" />
     <EntityDeploy Include="BDMS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BDMS.Designer.cs</LastGenOutput>
@@ -493,9 +497,6 @@
     <Content Include="BDMS.edmx.diagram">
       <DependentUpon>BDMS.edmx</DependentUpon>
     </Content>
-    <Content Include="less\agency.less" />
-    <Content Include="less\mixins.less" />
-    <Content Include="less\variables.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
@@ -558,8 +559,6 @@
     <Content Include="Views\Feedbacks\Delete.cshtml" />
     <Content Include="Views\Feedbacks\Details.cshtml" />
     <Content Include="Views\Feedbacks\Index.cshtml" />
-    <Content Include="Views\Donors\Index.cshtml" />
-    <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\PostRequest\Request.cshtml" />
     <Content Include="Views\Approval\Index.cshtml" />
     <Content Include="Views\Approval\Decline.cshtml" />
@@ -611,6 +610,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Approval\IndexAdmin.cshtml" />
+    <Content Include="Views\Donors\Details.cshtml" />
+    <Content Include="Views\Donors\IndexAdmin.cshtml" />
+    <Content Include="Views\Donors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,8 +28,8 @@ namespace WebApplication6.Controllers
             {
                 try
                 {
-                    
-                    SELABEntities db = new SELABEntities();
+
+                    LABEntities db = new LABEntities();
                     GoogleMap Map = new GoogleMap();
                     PostRequest req = new PostRequest();
                     Map.CityName = model.CityName;

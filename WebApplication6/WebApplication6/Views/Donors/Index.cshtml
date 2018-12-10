@@ -1,7 +1,7 @@
-﻿
-@model PagedList.IPagedList<WebApplication6.RegisteredUser>
+﻿@model PagedList.IPagedList<WebApplication6.RegisteredUser>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -47,24 +47,24 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.R_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.R_Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.R_BloodGroup)
-        </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.R_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.R_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.R_BloodGroup)
+            </td>
 
-        <td>
+            <td>
 
-            @Html.ActionLink("Details", "Details", new { id = item.R_ID })
+                @Html.ActionLink("Details", "Details", new { id = item.R_ID })
 
-        </td>
+            </td>
 
-    </tr>
+        </tr>
     }
 
 </table>
@@ -74,3 +74,5 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+

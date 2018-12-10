@@ -169,7 +169,7 @@ namespace WebApplication6.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    SELABEntities db = new SELABEntities();
+                    LABEntities db = new LABEntities();
                     var userdbmodel = db.AspNetUsers.Where(a => a.Email.Equals(model.R_Email)).FirstOrDefault();
                     RegisteredUser donor = new RegisteredUser();
                     donor.R_Name = model.R_Name;

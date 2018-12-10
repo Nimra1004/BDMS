@@ -17,7 +17,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            SELABEntities db = new SELABEntities();
+            LABEntities db = new LABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -45,7 +45,7 @@ namespace WebApplication6.Controllers
 
         public ActionResult IndexAdmin()
         {
-            SELABEntities db = new SELABEntities();
+            LABEntities db = new LABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -69,7 +69,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Decline(int id)
         {
-            SELABEntities db = new SELABEntities();
+            LABEntities db = new LABEntities();
             List<ApprovalViewModel> viewlist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
             List<PostRequest> list1 = db.PostRequests.ToList();
@@ -103,7 +103,7 @@ namespace WebApplication6.Controllers
         [Authorize]
         public ActionResult Approve(int id)
         {
-            SELABEntities db = new SELABEntities();
+            LABEntities db = new LABEntities();
             
             if (ModelState.IsValid)
             {
@@ -128,7 +128,7 @@ namespace WebApplication6.Controllers
             string LoginId = User.Identity.GetUserId();
             List<ApprovalViewModel> mylist = new List<ApprovalViewModel>();
             ApprovalViewModel obj = new ApprovalViewModel();
-            SELABEntities db = new SELABEntities();
+            LABEntities db = new LABEntities();
             List<PostRequest> list1 = db.PostRequests.ToList();
             List<GoogleMap> list2 = db.GoogleMaps.ToList();
             obj.num = 0;
